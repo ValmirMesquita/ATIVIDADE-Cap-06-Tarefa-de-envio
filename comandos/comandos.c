@@ -1,8 +1,9 @@
-/**********************************************
+/***************************************************************************************************
 Autor: Valmir Linhares de Sousa de Mesquita
 ATIVIDADE-Cap-06-Tarefa-de-envio - Comandos 
 Data:    22 de Maio de 2025
-************************************************/
+Link GitHub: https://github.com/ValmirMesquita/ATIVIDADE-Cap-06-Tarefa-de-envio/tree/main/comandos
+****************************************************************************************************/
 
 
 #include <stdio.h>
