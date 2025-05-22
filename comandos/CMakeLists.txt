@@ -15,9 +15,9 @@ if(WIN32)
 else()
     set(USERHOME $ENV{HOME})
 endif()
-set(sdkVersion 1.5.1)
-set(toolchainVersion 13_2_Rel1)
-set(picotoolVersion 2.0.0)
+set(sdkVersion 2.1.1)
+set(toolchainVersion 14_2_Rel1)
+set(picotoolVersion 2.1.1)
 set(picoVscode ${USERHOME}/.pico-sdk/cmake/pico-vscode.cmake)
 if (EXISTS ${picoVscode})
     include(${picoVscode})
@@ -28,38 +28,35 @@ set(PICO_BOARD pico_w CACHE STRING "Board type")
 # Pull in Raspberry Pi Pico SDK (must be before project)
 include(pico_sdk_import.cmake)
 
-project(Periferico_Avancado_USB C CXX ASM)
+project(comandos C CXX ASM)
 
 # Initialise the Raspberry Pi Pico SDK
 pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(Periferico_Avancado_USB Periferico_Avancado_USB.c )
+add_executable(comandos comandos.c )
 
-pico_set_program_name(Periferico_Avancado_USB "Periferico_Avancado_USB")
-pico_set_program_version(Periferico_Avancado_USB "0.1")
+pico_set_program_name(comandos "comandos")
+pico_set_program_version(comandos "0.1")
 
 # Modify the below lines to enable/disable output over UART/USB
-pico_enable_stdio_uart(Periferico_Avancado_USB 1)
-pico_enable_stdio_usb(Periferico_Avancado_USB 1)
+pico_enable_stdio_uart(comandos 0)
+pico_enable_stdio_usb(comandos 1)
 
 # Add the standard library to the build
-target_link_libraries(Periferico_Avancado_USB
-        pico_stdlib
-        
-       
-        )
+target_link_libraries(comandos
+        pico_stdlib)
 
 # Add the standard include files to the build
-target_include_directories(Periferico_Avancado_USB PRIVATE
+target_include_directories(comandos PRIVATE
         ${CMAKE_CURRENT_LIST_DIR}
 )
 
 # Add any user requested libraries
-target_link_libraries(Periferico_Avancado_USB 
+target_link_libraries(comandos 
         
         )
 
-pico_add_extra_outputs(Periferico_Avancado_USB)
+pico_add_extra_outputs(comandos)
 
